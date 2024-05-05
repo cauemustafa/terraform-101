@@ -1,12 +1,17 @@
 #Provider Block
 provider "aws" {
-    region = "us-east-1"
+    region = "us-east-2"
 }
 
 #EC2 Block w/tags
 resource "aws_instance" "tags-test" {
-    ami = "ami-0947d2ba12ee1ff75"
+    ami = "ami-0ddda618e961f2270"
     instance_type = "t2.micro"
-    #Add Tags
-
+    tags = {
+        Name = "Tags Test"
+        environment = "Dev"
+        owner = "lopes-compliance"
+        purpose = "Testing"
+        team = "DevOps"
+    }
 }
